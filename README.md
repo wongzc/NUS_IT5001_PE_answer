@@ -1,0 +1,3 @@
+Sharing my solution....
+May not be all correct
+any PR for imrpovement is welcome
