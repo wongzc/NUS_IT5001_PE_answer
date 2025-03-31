@@ -1,3 +1,3 @@
-Sharing my solution....
-May not be all correct
-any PR for imrpovement is welcome
+Sharing my solution....  
+May not be all correct  
+any PR for improvement is welcome  
