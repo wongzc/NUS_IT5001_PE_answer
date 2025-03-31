@@ -35,26 +35,26 @@ def fizzbuzz(factor1,factor2,n):
 # hmmm, TBD again
 def clean_text(filename,minlen):
     ans=[]
-    Cap=list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
-    Sma=list('abcdefghijklmnopqrstuvwxyz')
-    d={Cap[i]:Sma[i] for i in range(26)}
+    capWord=list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    smallWord=list('abcdefghijklmnopqrstuvwxyz')
+    d={capWord[i]:smallWord[i] for i in range(26)}
     with open(filename) as file:
         lines=file.readlines()
         for line in lines:
-            b_line=line.split(' ')
-            for word in b_line:
-                w=''
+            word_list=line.split() # this will fail testcase if we use split(' '), not sure why though....
+            for word in word_list:
+                updated_word=''
                 for char in word:
-                    if char in Cap:
-                        w+=d[char]
-                    elif char not in Sma:
-                        if len(w)>minlen:
-                            ans.append(w)
-                        w=''
+                    if char in capWord:
+                        updated_word+=d[char]
+                    elif char not in smallWord:
+                        if len(updated_word)>minlen:
+                            ans.append(updated_word)
+                        updated_word=''
                     else:
-                        w+=char
-                if len(w)>minlen:
-                    ans.append(w)
+                        updated_word+=char
+                if len(updated_word)>minlen:
+                    ans.append(updated_word)
     return ans
 
 

@@ -39,11 +39,11 @@ def decode(msg, offset):
     return ans
 
 def decode_with_love(msg):
-    d={c:i for i,c in enumerate('ABCDEFGHIJKLMNOPQRSTUVWXYZ')}
-    love=[d[i] for i in 'LOVE']
-    love26={}
     l='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    for shift in range(26):
+    d={c:i for i,c in enumerate(l)}
+    love=[d[i] for i in 'LOVE']
+    love26={} 
+    for shift in range(26): # create 26 version of LOVE haha
         d={c:i for i,c in enumerate(l)}
         love=[d[i] for i in 'LOVE']
         slove=''
