@@ -105,83 +105,64 @@ def thinning(pic):
 # Part3
 import math
 
-def LCM(S):
+def LCM(S): #cant find a good way to improve it to <1s X.X
     result = S[0]
     for i in range(1, len(S)):
         result = result * S[i] // math.gcd(result, S[i])
     return result
 
-def LCM(S):
-    def prime_factors(n):
-        factors = {}
-        while n % 2 == 0:
-            factors[2] = factors.get(2, 0) + 1
-            n //= 2
-        i = 3
-        while i * i <= n:
-            while n % i == 0:
-                factors[i] = factors.get(i, 0) + 1
-                n //= i
-            i += 2
-        if n > 1:
-            factors[n] = factors.get(n, 0) + 1
-        return factors
 
-
-    return 
-
-
-l= [i for i in range(3,250000,5)]
+l= [i for i in range(3,250000,5)] 
 print(LCM(l)%(10**10))
 import sys
 sys.set_int_max_str_digits(60000)
 print(len(str(LCM(l))))
 
-import math
-import time
-import sys
-sys.set_int_max_str_digits(60000)
+# import math
+# import time
+# import sys
+# sys.set_int_max_str_digits(60000)
 
-m=[0]*12
+# m=[0]*12
 
-def check(res,fac):
-    count=0
-    while res%fac==0:
-        res=res//fac
-        count+=1
-    c=m[fac]
-    if count>c:
-        m[fac]=count
-    return res
+# def check(res,fac):
+#     count=0
+#     while res%fac==0:
+#         res=res//fac
+#         count+=1
+#     c=m[fac]
+#     if count>c:
+#         m[fac]=count
+#     return res
     
-def lcm(a, b):
-    if a%b==0:
-        return a
-    return a * b // math.gcd(a, b)
+# def lcm(a, b):
+#     if a%b==0:
+#         return a
+#     return a * b // math.gcd(a, b)
 
-def list_lcm(lst):
-    result = lst[0]
-    for i in range(1, len(lst)):
-        curr=lst[i]
-        result=check(result,2)
-        result=check(result,3)
-        result=check(result,7)
-        # result=check(result,11)
+# def list_lcm(lst):
+#     result = lst[0]
+#     for i in range(1, len(lst)):
+#         curr=lst[i]
+#         result=check(result,2)
+#         result=check(result,3)
+#         result=check(result,7)
+#         # result=check(result,11)
 
         
-        curr=check(curr,2)
-        curr=check(curr,3)
-        curr=check(curr,7)
-        # curr=check(curr,11)
+#         curr=check(curr,2)
+#         curr=check(curr,3)
+#         curr=check(curr,7)
+#         # curr=check(curr,11)
 
-        result = lcm(result, curr)
-    return result*(2**m[2])*(3**m[3])*(7**m[7])*(11**m[11])
+#         result = lcm(result, curr)
+#     return result*(2**m[2])*(3**m[3])*(7**m[7])*(11**m[11])
 
-start = time.time()
-l = [i for i in range(3, 250000, 5)]
-print("Computing LCM...")
-result = list_lcm(l)
-print("LCM:", len(str(result)))
-print("Time taken:", time.time() - start, "seconds")
-print(l[:30])
-print(m)
+# start = time.time()
+# l = [i for i in range(3, 250000, 5)]
+# print("Computing LCM...")
+# result = list_lcm(l)
+# print("LCM:", len(str(result)))
+# print("Time taken:", time.time() - start, "seconds")
+# print(l[:30])
+# print(m)
